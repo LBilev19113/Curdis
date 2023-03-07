@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user_data` (
   `name` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`user_id`))
-ENGINE = InnoDB;
+;
 
 
 -- -----------------------------------------------------
@@ -35,18 +35,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`friends` (
   `user_id` INT NOT NULL,
   `friend_id` INT NOT NULL,
   PRIMARY KEY (`user_id`),
-  INDEX `friend_id_idx` (`friend_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC),
+  INDEX `friend_id_idx` (`friend_id` ASC)
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `mydb`.`user_data` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `mydb`.`user_data` (`user_id`),
   CONSTRAINT `friend_id`
     FOREIGN KEY (`friend_id`)
     REFERENCES `mydb`.`user_data` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    )
+;
 
 
 -- -----------------------------------------------------
@@ -69,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   `text` VARCHAR(1948) NOT NULL,
   `date` DATETIME NOT NULL,
   PRIMARY KEY (`message_id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `convo_id_idx` (`conversation_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `convo_id_idx` (`conversation_id` ASC) ,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`user_data` (`user_id`)
@@ -81,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
     REFERENCES `mydb`.`convo` (`convo_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+;
 
 
 -- -----------------------------------------------------
@@ -90,8 +88,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`convo_user` (
   `convo_id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `convo_id_idx` (`convo_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `convo_id_idx` (`convo_id` ASC) ,
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`user_data` (`user_id`)
@@ -102,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`convo_user` (
     REFERENCES `mydb`.`convo` (`convo_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
