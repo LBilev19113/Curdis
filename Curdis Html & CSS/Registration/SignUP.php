@@ -1,3 +1,40 @@
+<?php
+
+    include 'dbconnect.php';
+    //include 'signInController.php';
+
+    //login = new signInController();
+
+    
+	if ( isset( $_POST['submit'] ) ) {
+	
+		
+	
+		$username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirmpassword = $_POST['confirmpassword'];
+		$email = $_POST['email'];
+
+
+		include 'signInValidation.php';
+		
+        if ( !$error ){
+            
+            $hash = hash('sha256', $password);
+            
+			$sql = "INSERT INTO user_data ( username, password, email) VALUES (?,?,?)";
+			$connection->prepare($sql)->execute([$username, $hash, $email]);
+            
+            
+
+		   
+        }    
+    }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +49,8 @@
         <h2>Sign Up</h2>
         <form method="POST">
             <div class="user-box">
-                <input type="text" name="username" id="1" required>
-                <label for="username">Enter a username</label>
+                <input type="text" name="username" value="<?= @$username ?>" id="1" required>
+                <label for="username">Enter username</label>
             </div>
             <div class="user-box">
                 <input type="password" name="password" id="2" required>
@@ -24,7 +61,7 @@
                 <label for="confirmpassword">Repeat Password</label>
             </div>
             <div class="user-box">
-                <input type="text" name="email" id="4" required>
+                <input type="text" name="email"  value="<?= @$email ?>" id="4" required>
                 <label for="email">Email</label>
             </div>
             <a href="#">
@@ -44,34 +81,3 @@
 </body>
 </html>
 
-<?php
-
-    include 'dbconnect.php';
-
-    
-	if ( isset( $_POST['submit'] ) ) {
-	
-		
-	
-		$username = $_POST['username'];
-        $password = $_POST['password'];
-        $confirmpassword = $_POST['confirmpassword'];
-		$email = $_POST['email'];
-
-		
-		
-        if ($password == $confirmpassword){
-            
-            $hash = hash('sha256', $password);
-
-		    $sql = "INSERT INTO user_data ( username, password, email) VALUES (?,?,?)";
-		    $connection->prepare($sql)->execute([$username, $hash, $email]);
-        }    
-    }
-
-
-
-
-
-
-?>

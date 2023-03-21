@@ -44,17 +44,18 @@ include 'dbconnect.php';
 
 if ( isset( $_POST['submit'] ) ) {
 
-	// записване на данните от полетата в променливи за по-удобно
+	
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
     $hash = hash('sha256', $password);
 	
-	// зареждане от базата на потребител с въведените от формата име и парола
 	
 	$stmt = $connection->prepare("SELECT * FROM user_data WHERE email = ? AND password = ?"); 
 	$stmt->execute([ $email, $hash ]); 
 	$user = $stmt->fetch();
+
+    include 'logInValidation.php';
 	
 	if ( $user ) {
 			
@@ -67,7 +68,7 @@ if ( isset( $_POST['submit'] ) ) {
 	} else {
 		
         //трябва да се оправи
-		echo "<b style='color:red;'>Невалидни потребителски данни</b><br><br>";
+		echo "<p style='text-align:center;'><b style='color:red;'>Невалидни потребителски данни</b></p><br><br>";
 	}
 }
 	

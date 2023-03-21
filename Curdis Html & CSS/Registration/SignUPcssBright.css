@@ -62,6 +62,27 @@ body{
     color: #d62323;
     font-size: 13px;
   }
+  .signUP-box input[type=submit]{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.5s;
+    margin-right: 40px;
+    letter-spacing: 4px;
+  }
+
+  .signUP-box input[type=submit]:hover{
+    background: #b3b4b7;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #b3b4b7, 0 0 25px #b3b4b7;
+  }
+
   .signUP-box form a {
     position: relative;
     display: inline-block;
