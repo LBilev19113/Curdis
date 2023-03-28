@@ -63,14 +63,17 @@
             <div class="user-box">
                 <input type="text" name="email"  value="<?= @$email ?>" id="4" required>
                 <label for="email">Email</label>
+            </div><br>
+            <!--<a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </a>-->
+            <div class="user-box" >
+            <input type="submit" name="submit"  value="Sign up"><br>
             </div>
-            <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <input type="submit" name="submit" value="Sign up"><br>
-            </a>
             <a href="SignIN.php">
                 Already have an account?
 

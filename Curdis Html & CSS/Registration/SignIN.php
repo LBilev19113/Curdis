@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SignUPcssDark.css">
-    <title>Sign In</title>
-</head>
-<body>
-    <div class="signUP-box">
-        <h2>Sign In</h2>
-        <form method="POST">
-           <div class="user-box">
-                <input type="text" name="email" id="1" required>
-                <label for="">Email</label>
-            </div>
-            <div class="user-box">
-                <input type="password" name="password" id="2" required>
-                <label for="">Password</label>
-            </div>
-            <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <input type="submit" name="submit" value="Sign in"><br>
-            </a>
-            <a href="SignUP.php">
-                Don't have an account yet?
-
-            </a>
-        </form>
-    </div>
-
-    
-    
-</body>
-</html>
-
 <?php 
 
 include 'dbconnect.php';
@@ -73,4 +33,42 @@ if ( isset( $_POST['submit'] ) ) {
 }
 	
 ?>	
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="SignUPcssDark.css">
+    <title>Sign In</title>
+</head>
+<body>
+    <div class="signUP-box">
+        <h2>Sign In</h2>
+        <form method="POST" >
+           <div class="user-box">
+                <input type="text" name="email" id="1" autocomplete="off" required>
+                <label for="">Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id="2" autocomplete="off" required>
+                <label for="">Password</label>
+            </div><br>
+            <div class="user-box">
+            <input type="submit" name="submit" value="Sign in"><br>
+            </div>
+            <a href="SignUP.php">
+                Don't have an account yet?
+
+            </a>
+        </form>
+    </div>
+
+    
+    
+</body>
+</html>
+
+
 

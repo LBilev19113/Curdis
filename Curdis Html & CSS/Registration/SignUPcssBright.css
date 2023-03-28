@@ -9,6 +9,12 @@ body{
     font-family: "Poppins", sans-serif;
     background: linear-gradient(#d62323,#813f3f, #272829);
 }
+
+.center{
+  margin:auto;
+  width: 50%;
+  padding: 10px;
+}
 .signUP-box {
     position: absolute;
     top: 50%;
