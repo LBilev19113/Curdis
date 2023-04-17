@@ -1,4 +1,5 @@
 <?php
+session_start();
 
     include '../Db/dbconnect.php';
     //include 'signInController.php';

@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 
 include '../Db/dbconnect.php';
 
@@ -15,14 +17,17 @@ if ( isset( $_POST['submit'] ) ) {
 	$stmt->execute([ $email, $hash ]); 
 	$user = $stmt->fetch();
 
-    include '../Validation/logInValidation.php';
+    //include '../Validation/logInValidation.php';
+
+
 	
 	if ( $user ) {
 			
-		$_SESSION['user'] = $user;
+		$_SESSION['user'] = $email;
 		
 		
 		header("location: mainPage.php");
+        
 		exit;
 		
 	} else {

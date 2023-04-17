@@ -7,6 +7,14 @@ if ( !$_SESSION['user'] ) {
 	exit;
 }
 
+$email = $_SESSION['user'];
+include '../Db/dbconnect.php';
+
+$stmt = $connection->prepare("SELECT username FROM user_data WHERE email = ? "); 
+$stmt->execute([ $email ]);
+$username = $stmt->fetch();
+
+
 ?>
 
 
@@ -29,6 +37,7 @@ if ( !$_SESSION['user'] ) {
                 <div class="userimg">
                     <img src="../img/img2.jpg" class="cover">
                 </div>
+                <h4><?php echo $username['username']; ?></h4>
                 <ul class="nav_icons">
                     <li><ion-icon name="settings-outline"></ion-icon></li>
                     <li><ion-icon name="add-outline"></ion-icon></li>
