@@ -15,6 +15,7 @@ session_start();
         $password = $_POST['password'];
         $confirmpassword = $_POST['confirmpassword'];
 		$email = $_POST['email'];
+        $profilePicture = "../img/default.jpg";
 
 
 		include '../Validation/signInValidation.php';
@@ -23,8 +24,8 @@ session_start();
             
             $hash = hash('sha256', $password);
             
-			$sql = "INSERT INTO user_data ( username, password, email) VALUES (?,?,?)";
-			$connection->prepare($sql)->execute([$username, $hash, $email]);
+			$sql = "INSERT INTO user_data ( username, password, email, profilePicture) VALUES (?,?,?,?)";
+			$connection->prepare($sql)->execute([$username, $hash, $email, $profilePicture]);
             
             
 

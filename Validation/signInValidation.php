@@ -6,7 +6,7 @@
 #print_r($confirmpassword);
 #print_r($password);
 
-#$error = false;
+$error = false;
 
 
 if ($password != $confirmpassword){

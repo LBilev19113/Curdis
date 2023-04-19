@@ -9,10 +9,11 @@ if ( !$_SESSION['user'] ) {
 
 $email = $_SESSION['user'];
 include '../Db/dbconnect.php';
+include '../Db/getUserFromEmail.php';
+include '../Db/getFriends.php';
+#print_r($friend['username']);
 
-$stmt = $connection->prepare("SELECT username FROM user_data WHERE email = ? "); 
-$stmt->execute([ $email ]);
-$username = $stmt->fetch();
+
 
 
 ?>
@@ -32,60 +33,69 @@ $username = $stmt->fetch();
 <body>
     <div class="container">
         <div class="leftside">
-            <!--User Profile-->
+            
             <div class="header">
                 <div class="userimg">
-                    <img src="../img/img2.jpg" class="cover">
+                    <img src="<?php echo $user['profilePicture']?>" class="cover">
                 </div>
-                <h4><?php echo $username['username']; ?></h4>
+                <h4><?php echo $user['username']; ?></h4>
                 <ul class="nav_icons">
                     <li><ion-icon name="settings-outline"></ion-icon></li>
-                    <li><ion-icon name="add-outline"></ion-icon></li>
+                    <li><ion-icon name="add-outline"></ion-icon><!--<button class="btn" id="button"><ion-icon name="add-outline"></ion-icon></button>--></li>
                     <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
                 </ul>
             </div>
-            <!--Chatlist-->
-            <div class="chatlist">
-                <div class="block active">
-                    <div class="imgbx">
-                        <img src="../img/Kayla-Person.jpg">
+            <!--   Pop up kinda
+                <div id="overlay"></div>
+                    <div id="popup">
+                    <div class="popupcontrols">
+                        <span id="popupclose">X</span>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
-                            <h4>*UserName*</h4>
-                            <p class="time">16:20</p>
-                        </div>
-                        <div class="message_p">
-                            <p></p>
-                            <b></b>
-                        </div>
+                    <div class="popupcontent">
+                        <h1>Some Popup Content</h1>
                     </div>
                 </div>
-              <?php  for($i=0; $i<10; $i++): ?>
-
-                <div class="block unread">
+                <script type="text/javascript">
+                    // Initialize Variables
+                    var closePopup = document.getElementById("popupclose");
+                    var overlay = document.getElementById("overlay");
+                    var popup = document.getElementById("popup");
+                    var button = document.getElementById("button");
+                    // Close Popup Event
+                    closePopup.onclick = function() {
+                    overlay.style.display = 'none';
+                    popup.style.display = 'none';
+                    };
+                    // Show Overlay and Popup
+                    button.onclick = function() {
+                    overlay.style.display = 'block';
+                    popup.style.display = 'block';
+                    }
+                </script>-->
+            
+            <div class="chatlist">
+              <?php foreach ($friends as $friend): ?>
+                <div class="block active">
                     <div class="imgbx">
-                        <img src="../img/img3.jpg">
+                        <img src="<?php echo $friend['profilePicture'] ?>">
                     </div>
                     <div class="details">
                         <div class="listHead">
-                            <h4>*UserName*</h4>
-                            <p class="time">12:33</p>
+                            <h4><?php echo $friend['username'] ?></h4>
                         </div>
                         <div class="message_p">
-                            <p>Hey, cutie</p>
-                            <b>1</b>
+                            <p>status</p>
                         </div>
                     </div>
                 </div>   
-              <?php   endfor;    ?>
+              <?php   endforeach;    ?>
          
             </div>
         </div>
 
         
         
-        <!--Chat-->
+        
         <div class="rightside">
             <div class="header2">
                 <div class="imgText">
