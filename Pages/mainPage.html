@@ -1,0 +1,133 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="MainCSS.css">
+    <title>CurDis</title>
+</head>
+<body>
+    <div class="container">
+        <div class="leftside">
+            
+            <div class="header">
+                <div class="userimg">
+                    <a href="#" onclick="togglePopup4()"><img src="../img/default.jpg" class="cover"></a>
+                </div>
+                <h4>default</h4>
+                <ul class="nav_icons">
+                    <li><a href="#" class="nav_icons" onclick="togglePopup3()"><ion-icon name="settings-outline"></ion-icon></a></li>
+                    <li><a href="#" class="nav_icons" onclick="togglePopup2()"><ion-icon name="add-outline"></ion-icon></a></li>
+                    <li><a href="#" class="nav_icons" onclick="togglePopup1()"><ion-icon name="notifications-outline"></ion-icon> </a> </li>
+                </ul>
+                <!--<div class="menu"></div>-->
+            </div>
+            
+            <div class="popup1" id="popup-1">
+                <div class="content1">
+                    <p>Friend Requests</p>
+                    <div class="chatlist">
+                        <!--<?php
+                        ?>-->
+                        <div class="block active">
+                            <div class="details">
+                                <div class="listHead">
+                                    <h4>username<!--<?php  ?>--></h4> <br>
+                                        <a href="" class="accept">Accept</a>
+                                        <a href="" class="decline">Decline</a>
+                                    
+                                </div>
+                            </div>
+                        </div>   
+                        
+                    </div>
+                    <div class="close-btn" onclick="togglePopup1()">&times;</div>
+               </div>
+            </div>
+            
+            <div class="popup2" id="popup-2">
+                <div class="content2">
+                    <p>Add friend</p>
+                    <form method="POST">
+                        <div >
+                            <label for="receiver">Name: </label>
+                            <input type="text" name="receiver" id="1" autocomplete="off" required>
+                        </div>
+                        <div >
+                            <input type="submit" name="addFriend" value="Add"><br>
+                        </div>
+                    </form>
+                    <div class="close-btn" onclick="togglePopup2()">&times;</div>
+               </div>
+            </div>
+            <div class="popup3" id="popup-3">
+                <div class="content3">
+                    <p>Choose your color theme.</p>
+                    <ul class="themes"> <br>
+                        <li><a href="#">Monochrome</a> <img src="img/White.png" class="timage" alt=""></li>
+                        <li><a href="#">911 whats's your emergancy?</a> <img src="img/Red.png" class="timage" alt=""></li>
+                        <li><a href="#">Welcome to the Jungle</a> <img src="img/Green.png" class="timage" alt=""></li>
+                        <li><a href="#">Lilac</a> <img src="img/Lilac.png" class="timage" alt=""></li>
+                        <li><a href="#">I really wanna stay at your house</a> <img src="img/Colorfull.png" class="timage" alt=""></li>
+                        <li><a href="#">i'm blue</a> <img src="img/Blue.png" class="timage" alt=""></li>
+                        <li><a href="#">"My child is perfectly fine"</a> <img src="img/Weeb.png" class="timage" alt=""></li>
+                        <li><a href="#">Cyberpunk</a> <img src="img/Neon.png" class="timage" alt=""></li>
+                    </ul>
+                    <div class="close-btn" onclick="togglePopup3()">&times;</div>
+               </div>
+            </div>
+
+            <div class="popup4" id="popup-4">
+                <div class="content4">
+                    <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                </div>
+            </div>    
+            <div class="chatlist">
+           
+                <div class="block active">
+                    <div class="imgbx">
+                        <img src="../img/default.jpg">
+                    </div>
+                    <div class="details">
+                        <div class="listHead">
+                            <h4>username</h4>
+                        </div>
+                        <div class="message_p">
+                            <p>status</p>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <div class="rightside">
+            <div class="header2">
+                <div class="imgText">
+                    <div class="userimg2">
+                        <img src="../img/Kayla-Person.jpg" class="cover">
+                    </div>
+                    <h4>*UserName* <br> <span>online</span></h4>
+                </div>
+                
+            </div>
+            <div class="chatbox_input">
+                <ion-icon name="attach-outline"></ion-icon>
+                <input type="text" placeholder="Type a message">
+            </div>
+            <div class="chatbox">
+                <div class="messages">
+                    <img src="img/img2.jpg">
+                    <p>Hey bro did you know that you are adopted? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet beatae tenetur enim aliquam atque nemo, dolor, architecto molestiae impedit, laboriosam delectus quaerat accusantium eligendi tempore aliquid error. Neque, reiciendis eaque.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
+</html>
