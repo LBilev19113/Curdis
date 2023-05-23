@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../Js/popup.js"></script>
+    <script src="popup.js"></script>
     <link rel="stylesheet" href="MainCSS.css">
     <title>CurDis</title>
 </head>
@@ -115,7 +115,10 @@
             </div>
             <div class="chatbox_input">
                 <ion-icon name="attach-outline"></ion-icon>
-                <input type="text" placeholder="Type a message">
+                <form method="POST">
+                    <input type="text" name="message" placeholder="Type a message">
+                    <input type="submit" name="messageInput" value="send">
+                </form>
             </div>
             <div class="chatbox">
                 <div class="messages">

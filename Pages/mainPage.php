@@ -15,7 +15,8 @@ include '../Db/getFriendrequests.php';
 
 $user_id = $user['user_id'];
 
-include '../Db/dbconnect.php';
+$messageSender = $user_id;
+$messageReceiver = 21;
 
 if ( isset( $_POST['addFriend'] ) ) {
 	
@@ -30,6 +31,15 @@ if ( isset( $_POST['addFriend'] ) ) {
 
 }
 
+if ( isset( $_POST['messageInput'] ) ) {
+	 
+	$message = $_POST['message'];
+    include '../Db/sendMessage.php';
+
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +48,8 @@ if ( isset( $_POST['addFriend'] ) ) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../Js/popup.js"></script>
-    <link rel="stylesheet" href="../Css/MainCSS.css" type="text/css">
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="MainCSS.css" type="text/css">
     <title>CurDis</title>
 </head>
 <body>
@@ -48,7 +58,7 @@ if ( isset( $_POST['addFriend'] ) ) {
             
             <div class="header">
                 <div class="userimg">
-                    <img src="<?php echo $user['profilePicture']?>" class="cover">
+                    <a href="#" onclick="togglePopup4()"><img src="<?php echo $user['profilePicture']?>" class="cover"></a>
                 </div>
                 <h4><?php echo $user['username']; ?></h4>
                 <ul class="nav_icons">
@@ -164,15 +174,27 @@ if ( isset( $_POST['addFriend'] ) ) {
                     <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
                 </ul>
             </div>
-            <div class="chatbox_input">
+            <div class="chatbox_input" style="z-index: 1000 !important;">
                 <ion-icon name="attach-outline"></ion-icon>
-                <input type="text" placeholder="Type a message">
+                <form method="POST">
+                    <input type="text" name="message" placeholder="Type a message">
+                    <input type="submit" name="messageInput" value="send">
+                </form>
+
+                
             </div>
             <div class="chatbox">
-                <div class="messages">
-                    <img src="../img/defaul.jpg">
-                    <p>Hey bro did you know that you are adopted? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet beatae tenetur enim aliquam atque nemo, dolor, architecto molestiae impedit, laboriosam delectus quaerat accusantium eligendi tempore aliquid error. Neque, reiciendis eaque.</p>
-                </div>
+                    <?php 
+                       
+                        include "../Db/getMessages.php";
+                        foreach($messages as $message):
+                    ?>
+                    <div class="messages">
+                    <img src="<?php echo $message['profilePicture'] ?>">
+                    <p><?php echo $message['message'] ?></p><br>
+                    </div>
+                    <?php endforeach; ?>
+                
             </div>
         </div>
     </div>
