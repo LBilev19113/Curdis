@@ -52,55 +52,7 @@ body{
     padding: 0 15px;
     border-radius: 12px;
 }
-/* for the popup
-#overlay {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background: #999;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    z-index: 100;
-}
 
-#popup {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #fff;
-    width: 500px;
-    height: 500px;
-    margin-left: 20%; 
-    margin-top: auto; 
-    z-index: 200;
-}
-
-#popupclose {
-    float: right;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.popupcontent {
-    padding: 10px;
-}
-
-#button {
-    cursor: pointer;
-}
-
-.btn {
-    display: flex;
-    background-color: transparent; 
-    border: none; 
-    color: #51585c; 
-    padding: 0px; 
-    font-size: 1.5em; 
-    cursor: pointer; 
-  }*/
 .userimg{
     position: relative;
     width: 45px;
@@ -242,7 +194,7 @@ body{
     position: relative;
     width: 100%;
     height: 60px;
-    top: 599px;
+    top: 83.4%;
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     display: flex;
@@ -272,7 +224,7 @@ body{
     left: 75%;
     transform: translate(-50%, -50%) scale(0);
     background: #fff;
-    width: 100%;
+    width: 110%;
     height: 30%;
     z-index: 2;
     box-sizing: border-box;
@@ -309,7 +261,7 @@ body{
     background: #fff;
     width: 100%;
     height: 30%;
-    z-index: 2;
+    z-index: 3;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -343,10 +295,15 @@ body{
     transform: translate(-50%, -50%) scale(0);
     background: #fff;
     width: 100%;
-    height: 50%;
+    height: 60%;
     z-index: 2;
     box-sizing: border-box;
     border-radius: 10px;
+}
+
+.popup3 .content3 p{
+    text-align: center;
+    top: 15px;
 }
 
 .popup3 .close-btn{
@@ -371,4 +328,156 @@ body{
 
 }
 
+.popup4 .content4 {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 85%;
+    height: 50%;
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.popup4 .close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    background: #222;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.popup4.active .content4{
+    transition:all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+.themes{
+    position: relative;
+    width: 95%;
+    margin: 0px auto 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.themes li{
+    display: flex;
+    background: rgba(116, 114, 114, 0.23);
+    padding: 10px 15px;
+    color: #fff;
+    margin: 3px 0;
+    transition: .5s;
+    border-radius: 10px;
+}
+
+.themes li:hover{
+    transform: scale(1.04);
+    background: #e3dede;
+}
+
+.themes li a{
+    text-decoration: none;
+    color: #262626;
+}
+
+.timage{
+    position: absolute;
+    display: flex;
+    width: 45px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 5%;
+    left: 85%;
+    
+}
+
+.chatbox{
+    position: relative;
+    width: 100%;
+    height: calc(100% - 120px);
+    padding: 50px;
+    overflow-y: auto;
+    
+}
+.messages{
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+    
+}
+
+.messages p{
+    position: relative;
+    right: 0;
+    left: 20px;
+    text-align: left;
+    max-width: 75%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 15px;
+}
+
+.messages img{
+    position: relative;
+    left: 0px;
+    width: 45px;
+    height: 47px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.listHead .accept{
+    position: relative;
+    display: inline-block;
+    padding: 10px 5px;
+    color: #111;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.5s;
+    margin-right: 25px;
+    letter-spacing: 2px;
+  }
+  .listHead .accept:hover{
+    background: #39ff14;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #39ff14, 0 0 25px #39ff14;
+    
+}
+
+.listHead .decline{
+    position: relative;
+    display: inline-block;
+    padding: 10px 5px;
+    color: #111;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.5s;
+    margin-right: 25px;
+    letter-spacing: 2px;
+  }
+  .listHead .decline:hover{
+    background: #ff0000;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ff0000, 0 0 25px #ff0000;
+    
+}
 

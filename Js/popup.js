@@ -9,3 +9,7 @@ function togglePopup2(){
 function togglePopup3(){
     document.getElementById("popup-3").classList.toggle("active");
 }
+
+function togglePopup4(){
+    document.getElementById("popup-4").classList.toggle("active");
+}

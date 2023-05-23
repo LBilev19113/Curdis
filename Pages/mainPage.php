@@ -26,17 +26,8 @@ if ( isset( $_POST['addFriend'] ) ) {
     include '../Db/getUserFromName.php';
     $receiver = $userIdFromName['user_id'];
     
+    include '../Db/addFriend.php';
 
-    $sql = "INSERT INTO requests ( sender, receiver) VALUES (?,?)";
-    $connection->prepare($sql)->execute([$sender, $receiver]);
-
-
-    /*include '../Validation/signInValidation.php';
-    # will add validation
-    if ( !$error ){
-        
-        $hash = hash('sha256', $password);    
-    }  */  
 }
 
 ?>
@@ -48,7 +39,7 @@ if ( isset( $_POST['addFriend'] ) ) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../Js/popup.js"></script>
-    <link rel="stylesheet" href="../Css/MainCSS.css">
+    <link rel="stylesheet" href="../Css/MainCSS.css" type="text/css">
     <title>CurDis</title>
 </head>
 <body>
@@ -88,19 +79,13 @@ if ( isset( $_POST['addFriend'] ) ) {
                             include '../Db/removeRequest.php';
                         }
                     
-
-
                         foreach ($requests as $request):?>
                         <div class="block active">
                             <div class="details">
                                 <div class="listHead">
                                     <h4><?php echo $request['username'] ?></h4>
-                                    <div >
-                                        <a href="mainPage.php?accept_id=<?= $request['user_id'] ?>">Accept</a><br>
-                                    </div>
-                                    <div >
-                                        <a href="mainPage.php?decline_id=<?= $request['user_id'] ?>">Decline</a><br>
-                                    </div>
+                                        <a href="mainPage.php?accept_id=<?= $request['user_id'] ?>" class="accept">Accept</a>
+                                        <a href="mainPage.php?decline_id=<?= $request['user_id'] ?>" class="decline">Decline</a>
                                 </div>
                             </div>
                         </div>   
@@ -127,10 +112,26 @@ if ( isset( $_POST['addFriend'] ) ) {
             </div>
             <div class="popup3" id="popup-3">
                 <div class="content3">
+                    <p>Choose your color theme.</p>
+                    <ul class="themes"> <br>
+                        <li><a href="#">Monochrome</a> <img src="../img/White.png" class="timage" alt=""></li>
+                        <li><a href="#">911 whats's your emergancy?</a> <img src="../img/Red.png" class="timage" alt=""></li>
+                        <li><a href="#">Welcome to the Jungle</a> <img src="../img/Green.png" class="timage" alt=""></li>
+                        <li><a href="#">Lilac</a> <img src="../img/Lilac.png" class="timage" alt=""></li>
+                        <li><a href="#">I really wanna stay at your house</a> <img src="../img/Colorfull.png" class="timage" alt=""></li>
+                        <li><a href="#">i'm blue</a> <img src="../img/Blue.png" class="timage" alt=""></li>
+                        <li><a href="#">"My child is perfectly fine"</a> <img src="../img/Weeb.png" class="timage" alt=""></li>
+                        <li><a href="#">Cyberpunk</a> <img src="../img/Neon.png" class="timage" alt=""></li>
+                    </ul>
                     <div class="close-btn" onclick="togglePopup3()">&times;</div>
                </div>
             </div>
-            
+
+            <div class="popup4" id="popup-4">
+                <div class="content4">
+                    <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                </div>
+            </div> 
             <div class="chatlist">
              <?php foreach ($friends as $friend):
                 
@@ -149,7 +150,6 @@ if ( isset( $_POST['addFriend'] ) ) {
                     </div>
                 </div>   
              <?php   endforeach;    ?>
-         
             </div>
         </div>
         <div class="rightside">
@@ -167,6 +167,12 @@ if ( isset( $_POST['addFriend'] ) ) {
             <div class="chatbox_input">
                 <ion-icon name="attach-outline"></ion-icon>
                 <input type="text" placeholder="Type a message">
+            </div>
+            <div class="chatbox">
+                <div class="messages">
+                    <img src="../img/defaul.jpg">
+                    <p>Hey bro did you know that you are adopted? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet beatae tenetur enim aliquam atque nemo, dolor, architecto molestiae impedit, laboriosam delectus quaerat accusantium eligendi tempore aliquid error. Neque, reiciendis eaque.</p>
+                </div>
             </div>
         </div>
     </div>
