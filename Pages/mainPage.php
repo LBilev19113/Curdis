@@ -16,7 +16,7 @@ include '../Db/getFriendrequests.php';
 $user_id = $user['user_id'];
 
 $messageSender = $user_id;
-$messageReceiver = 21;
+$messageReceiver= $user_id;
 
 if ( isset( $_POST['addFriend'] ) ) {
 	
@@ -30,15 +30,6 @@ if ( isset( $_POST['addFriend'] ) ) {
     include '../Db/addFriend.php';
 
 }
-
-if ( isset( $_POST['messageInput'] ) ) {
-	 
-	$message = $_POST['message'];
-    include '../Db/sendMessage.php';
-
-}
-
-
 
 ?>
 
@@ -143,10 +134,17 @@ if ( isset( $_POST['messageInput'] ) ) {
                 </div>
             </div> 
             <div class="chatlist">
-             <?php foreach ($friends as $friend):
+             <?php
+                    if (isset( $_GET['chat_id'])) {
+                        
+                        $messageReceiver =  $_GET['chat_id'];
+                    }
+             
+             
+                foreach ($friends as $friend):
                 
                 ?>
-                <div class="block active">
+                <a href="mainPage.php?chat_id=<?= $friend['user_id'] ?>"  style="text-decoration:none" ><div class="block active">
                     <div class="imgbx">
                         <img src="<?php echo $friend['profilePicture'] ?>">
                     </div>
@@ -155,10 +153,10 @@ if ( isset( $_POST['messageInput'] ) ) {
                             <h4><?php echo $friend['username'] ?></h4>
                         </div>
                         <div class="message_p">
-                            <p>status</p>
+                            
                         </div>
                     </div>
-                </div>   
+                </div></a> 
              <?php   endforeach;    ?>
             </div>
         </div>
@@ -166,9 +164,12 @@ if ( isset( $_POST['messageInput'] ) ) {
             <div class="header2">
                 <div class="imgText">
                     <div class="userimg2">
-                        <img src="../img/Kayla-Person.jpg" class="cover">
+                        <?php 
+                            include "../Db/getCurrentChat.php";
+                        ?>
+                        <img src="<?php echo $currentChat['profilePicture']  ?>" class="cover">
                     </div>
-                    <h4>*UserName* <br> <span>online</span></h4>
+                    <h4><?php echo $currentChat['username'] ?><br> <span>online</span></h4>
                 </div>
                 <ul class="nav_icons">
                     <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
@@ -179,6 +180,15 @@ if ( isset( $_POST['messageInput'] ) ) {
                 <form method="POST">
                     <input type="text" name="message" placeholder="Type a message">
                     <input type="submit" name="messageInput" value="send">
+
+                    <?php
+                            if ( isset( $_POST['messageInput'] ) ) {
+	 
+                                $message = $_POST['message'];
+                                include '../Db/sendMessage.php';
+                            
+                            }
+                    ?>  
                 </form>
 
                 
