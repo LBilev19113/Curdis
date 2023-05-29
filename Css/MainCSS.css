@@ -207,12 +207,11 @@ body{
 .chatbox_input input{
     position: relative;
     display: inline-block;
-    left: 100px;
    
 }
 
 .chatbox_input input[type="text"]{
-    color: #fff;
+    color: #000 !important;
     width: 70em;
     height: 3.0em;
     border: none;
@@ -225,7 +224,7 @@ body{
     position: relative;
     color: #fff;
     border-radius: 0 25px 25px 0;
-    width: 5em;
+    width: 10em;
     height: 3.0em;
     border: none;
     outline: none;
@@ -435,6 +434,8 @@ body{
     z-index: 2;
     box-sizing: border-box;
     border-radius: 10px;
+    overflow:hidden; 
+    overflow-y:scroll;
 }
 
 .popup3 .content3 p{
@@ -547,8 +548,13 @@ body{
     width: 100%;
     height: calc(100% - 120px);
     padding: 50px;
+    overflow-y: hidden;
     overflow-y: auto;
     
+}
+
+.chatbox::-webkit-scrollbar { 
+    display: none; 
 }
 .messages{
     position: relative;

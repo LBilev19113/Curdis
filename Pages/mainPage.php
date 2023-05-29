@@ -40,7 +40,19 @@ if ( isset( $_POST['addFriend'] ) ) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="popup.js"></script>
-    <link rel="stylesheet" href="MainCSS.css" type="text/css">
+    <link rel="stylesheet" href="../Css/MainCSS.css">
+    <script>
+        function toggleTheme(value) {
+  
+            // Obtain the name of stylesheet 
+            // as a parameter and set it 
+            // using href attribute.
+            var sheets = document
+                .getElementsByTagName('link');
+  
+            sheets[0].href = value;
+        }
+    </script>
     <title>CurDis</title>
 </head>
 <body>
@@ -62,7 +74,7 @@ if ( isset( $_POST['addFriend'] ) ) {
             
             <div class="popup1" id="popup-1">
                 <div class="content1">
-                    <p>Friend Requests</p>
+                    <p>Friend Requests</p><br>
                     <div class="chatlist">
                         <?php 
                         include '../Db/getFriendrequests.php';
@@ -100,11 +112,11 @@ if ( isset( $_POST['addFriend'] ) ) {
                 <div class="content2">
                     <p>Add friend</p>
                     <form method="POST">
-                        <div >
-                            <label for="receiver">Name: </label>
-                            <input type="text" name="receiver" id="1" autocomplete="off" required>
+                        <div class="nametype">
+                            <label for="receiver">Name: </label> <br>
+                            <input type="text" name="receiver" id="1" autocomplete="off" placeholder="Add name..." required>
                         </div>
-                        <div >
+                        <div class="addfriend">
                             <input type="submit" name="addFriend" value="Add"><br>
                         </div>
                     </form>
@@ -115,14 +127,14 @@ if ( isset( $_POST['addFriend'] ) ) {
                 <div class="content3">
                     <p>Choose your color theme.</p>
                     <ul class="themes"> <br>
-                        <li><a href="#">Monochrome</a> <img src="../img/White.png" class="timage" alt=""></li>
-                        <li><a href="#">911 whats's your emergancy?</a> <img src="../img/Red.png" class="timage" alt=""></li>
-                        <li><a href="#">Welcome to the Jungle</a> <img src="../img/Green.png" class="timage" alt=""></li>
-                        <li><a href="#">Lilac</a> <img src="../img/Lilac.png" class="timage" alt=""></li>
-                        <li><a href="#">I really wanna stay at your house</a> <img src="../img/Colorfull.png" class="timage" alt=""></li>
-                        <li><a href="#">i'm blue</a> <img src="../img/Blue.png" class="timage" alt=""></li>
-                        <li><a href="#">"My child is perfectly fine"</a> <img src="../img/Weeb.png" class="timage" alt=""></li>
-                        <li><a href="#">Cyberpunk</a> <img src="../img/Neon.png" class="timage" alt=""></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/MainCss.css')">Monochrome</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/red.css')">911 whats's your emergancy?</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/green.css')">Welcome to the Jungle</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/lilac.css')">Lilac</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/weeb.css')">I really wanna stay at your house</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/blue.css')">i'm blue</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/colorful.css')">"My child is perfectly fine"</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/cyberpunk.css')">Cyberpunk</a></li>
                     </ul>
                     <div class="close-btn" onclick="togglePopup3()">&times;</div>
                </div>
@@ -130,6 +142,11 @@ if ( isset( $_POST['addFriend'] ) ) {
 
             <div class="popup4" id="popup-4">
                 <div class="content4">
+                    <input type="image" value="image" src="<?php echo $user['profilePicture']?>">
+                    <h3><?php echo $user['username']?></h3>
+                    <input type="text" placeholder="Change your username..."> 
+                    <a href="#" class="changename">Change</a>
+                    <a href="SignIn.php" class="logout">LOG OUT</a>
                     <div class="close-btn" onclick="togglePopup4()">&times;</div>
                 </div>
             </div> 
@@ -169,7 +186,7 @@ if ( isset( $_POST['addFriend'] ) ) {
                         ?>
                         <img src="<?php echo $currentChat['profilePicture']  ?>" class="cover">
                     </div>
-                    <h4><?php echo $currentChat['username'] ?><br> <span>online</span></h4>
+                    <h4><?php echo $currentChat['username'] ?><br> </h4>
                 </div>
                 <ul class="nav_icons">
                     <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
