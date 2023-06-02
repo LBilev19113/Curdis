@@ -31,6 +31,44 @@ if ( isset( $_POST['addFriend'] ) ) {
 
 }
 
+/*if ( isset( $_POST['changeProfile']) ) {
+
+    //$filename = $_FILES["uploadfile"]["name"];
+    //$tempname = $_FILES["uploadfile"]["tmp_name"];
+
+    $filename = $_POST['changePfp'];;
+    $route = "../img/" . $filename;
+    $newUsername = $_POST['changeUsername'];
+ 
+    if ( $newUsername = "" && ! is_null($route)) {
+        include "../Db/changeProfilePic.php";
+
+    } elseif ( $filename = ""  && ! is_null($newUsername)) {
+        include "../Db/changeUsername.php";
+        
+    }elseif($filename = ""  && $newUsername = ""){
+        }
+    else {
+        include "../Db/changeUsernameAndProfilePic.php";
+    }
+
+    include "../Db/changeUsernameAndProfilePic.php";
+
+
+}*/
+
+    if (isset($_POST['changeProfile'])) {
+        
+        $newUsername = $_POST['changeUsername'];
+        $img = "../img" . $_FILES['image']['name'];
+
+        include "../Db/changeUsernameAndProfilePic.php";
+
+        move_uploaded_file($_FILES['image']['tmp_name'], "../img/$img");
+
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -142,12 +180,18 @@ if ( isset( $_POST['addFriend'] ) ) {
 
             <div class="popup4" id="popup-4">
                 <div class="content4">
-                    <input type="image" value="image" src="<?php echo $user['profilePicture']?>">
-                    <h3><?php echo $user['username']?></h3>
-                    <input type="text" placeholder="Change your username..."> 
-                    <a href="#" class="changename">Change</a>
-                    <a href="SignIn.php" class="logout">LOG OUT</a>
-                    <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                    <form action="mainPage.php" method="post" enctype="multipart/form-data">
+                        <input type="image" value="image" src="<?php echo $user['profilePicture']?>">
+                        <label for="file-upload" class="custom-file-upload"><span class="file-label">Upload File</span></label>
+                       
+                        <input type="file" name="image" class="hidden" id="file-upload">
+                       
+                        <h3><?php echo $user['username']?></h3>
+                        <input type="text" placeholder="Change your username..." name="changeUsername"> 
+                        <input type="submit" class="changename" value=" Change " name="changeProfile">
+                        <a href="SignIn.php" class="logout">LOG OUT</a>
+                        <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                    </form>
                 </div>
             </div> 
             <div class="chatlist">
