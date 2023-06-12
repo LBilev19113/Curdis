@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="popup.js"></script>
-    <link rel="stylesheet" href="../Css/MainCSS.css">
+    <link rel="stylesheet" href="MainCSS.css">
     <title>CurDis</title>
 </head>
 <body>
@@ -81,14 +81,19 @@
 
             <div class="popup4" id="popup-4">
                 <div class="content4">
-                    <input type="image" value="image" src="img/img2.jpg">
-                    <h3>USERNAME</h3>
-                    <input type="text" placeholder="Change your username..."> 
-                    <a href="#" class="changename">Change</a>
-                    <a href="#" class="logout">LOG OUT</a>
-                    <div class="close-btn" onclick="togglePopup4()">&times;</div>
+                    <form action="mainPage.php" method="post" enctype="multipart/form-data">
+                        <input type="image" value="image" src="img/img2.jpg">
+                        <label for="file-upload" class="file-upload"></label>
+                        <input type="file" name="image" class="hidden" id="file-upload">
+                        <h3>'username'</h3>
+                        <input type="text" placeholder="Change your username..." name="changeUsername"> 
+                        <input type="submit" class="changename" value=" Change " name="changeProfile">
+                        <a href="SignIn.php" class="logout">LOG OUT</a>
+                        
+                    </form>
+                <div class="close-btn" onclick="togglePopup4()">&times;</div>
                 </div>
-            </div>    
+            </div> 
             <div class="chatlist">
            
                 <div class="block active">
