@@ -1,4 +1,8 @@
 <?php
+
+ini_set("display_errors", "1");
+ini_set("display_startup_errors", "1");
+error_reporting(E_ALL);
 session_start();
 
 if ( !$_SESSION['user'] ) {
@@ -118,7 +122,7 @@ if ( isset( $_POST['addFriend'] ) ) {
                             $sender =  $user_id;
                             $receiver = $_GET['accept_id'];
 
-                            include '../Db/acceptrequest.php';
+                            include '../Db/acceptRequest.php';
                             
                         }
 
@@ -161,7 +165,7 @@ if ( isset( $_POST['addFriend'] ) ) {
                 <div class="content3">
                     <p>Choose your color theme.</p>
                     <ul class="themes"> <br>
-                        <li><a href="#" onclick="toggleTheme('../Css/MainCss.css')">Monochrome</a></li>
+                        <li><a href="#" onclick="toggleTheme('../Css/MainCSS.css')">Monochrome</a></li>
                         <li><a href="#" onclick="toggleTheme('../Css/red.css')">911 whats's your emergancy?</a></li>
                         <li><a href="#" onclick="toggleTheme('../Css/green.css')">Welcome to the Jungle</a></li>
                         <li><a href="#" onclick="toggleTheme('../Css/lilac.css')">Lilac</a></li>
@@ -185,7 +189,7 @@ if ( isset( $_POST['addFriend'] ) ) {
                         <h3><?php echo $user['username']?></h3>
                         <input type="text" placeholder="Change your username..." name="changeUsername"> 
                         <input type="submit" class="changename" value=" Change " name="changeProfile">
-                        <a href="SignIn.php" class="logout">LOG OUT</a>
+                        <a href="./SignIn.php" class="logout">LOG OUT</a>
                         <div class="close-btn" onclick="togglePopup4()">&times;</div>
                     </form>
                 </div>
