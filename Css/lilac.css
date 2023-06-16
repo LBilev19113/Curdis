@@ -591,12 +591,12 @@ body{
     line-height: 1.2em;
     margin-left: 15px;
     left: 27%;
-    top: 40px;
+    top: 50px;
 }
 
 .content4 input[type="image"]{
     position: relative;
-    top: 1.30em;
+    top: 1.00em;
     left: 40%;
     width: 3.75em;
     height: 3.75em;
@@ -621,11 +621,13 @@ body{
 
 .content4 .changename{
     position: absolute;
-    top: 14.50em;
-    left: 7.90em;
+    top: 15.50em;
+    left: 7.20em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
+    background: transparent;
+    border: none;
     font-size: 13px;
     text-decoration: none;
     text-transform: uppercase;
@@ -633,6 +635,7 @@ body{
     transition: all 0.5s;
     margin-right: 25px;
     letter-spacing: 2px;
+    cursor: pointer;
   }
 
   .content4 .changename:hover{
@@ -645,7 +648,7 @@ body{
   .content4 .logout{
     position: relative;
     top: 12.50em;
-    left: 7.90em;
+    left: 7.50em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
@@ -663,4 +666,10 @@ body{
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #ff0000, 0 0 25px #ff0000;
+  }
+
+  .hidden{
+    position: absolute;
+    top: 5em;
+    left: 4.375em;
   }

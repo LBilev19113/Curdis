@@ -81,10 +81,6 @@ if ( isset( $_POST['addFriend'] ) ) {
     <link rel="stylesheet" href="../Css/MainCSS.css">
     <script>
         function toggleTheme(value) {
-  
-            // Obtain the name of stylesheet 
-            // as a parameter and set it 
-            // using href attribute.
             var sheets = document
                 .getElementsByTagName('link');
   
@@ -182,7 +178,7 @@ if ( isset( $_POST['addFriend'] ) ) {
                 <div class="content4">
                     <form action="mainPage.php" method="post" enctype="multipart/form-data">
                         <input type="image" value="image" src="<?php echo $user['profilePicture']?>">
-                        <label for="file-upload" class="custom-file-upload"><span class="file-label">Upload File</span></label>
+                        <label for="file-upload" class="custom-file-upload"><span class="file-label"></span></label>
                        
                         <input type="file" name="image" class="hidden" id="file-upload">
                        
@@ -237,7 +233,6 @@ if ( isset( $_POST['addFriend'] ) ) {
                 </ul>
             </div>
             <div class="chatbox_input" style="z-index: 1000 !important;">
-                <ion-icon name="attach-outline"></ion-icon>
                 <form method="POST">
                     <input type="text" name="message" placeholder="Type a message">
                     <input type="submit" name="messageInput" value="send">

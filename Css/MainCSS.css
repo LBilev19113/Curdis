@@ -232,6 +232,55 @@ body{
     background: #909090;
 }
 
+@media only screen and (max-width: 480px) and (min-width: 320px)  {
+
+
+    .chatbox_input input[type="text"]{
+        width: 15em;
+        padding: 0  0px;
+    }
+    
+    .chatbox_input input[type="submit"]{
+        width: 3em;
+    }
+  }
+
+  @media only screen and (max-width: 768px) and (min-width: 481px)  {
+
+
+    .chatbox_input input[type="text"]{
+        width: 20em;
+    }
+    
+    .chatbox_input input[type="submit"]{
+        width: 4em;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) and (min-width: 769px)  {
+
+
+    .chatbox_input input[type="text"]{
+        width: 35em;
+    }
+    
+    .chatbox_input input[type="submit"]{
+        width: 5em;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) and (min-width: 1025px)  {
+
+
+    .chatbox_input input[type="text"]{
+        width: 45em;
+    }
+    
+    .chatbox_input input[type="submit"]{
+        width: 6em;
+    }
+  }
+
 .popup1 .content1 {
     position: absolute;
     top: 25%;
@@ -591,39 +640,18 @@ body{
     line-height: 1.2em;
     margin-left: 15px;
     left: 27%;
-    top: 40px;
+    top: 50px;
 }
 
 .content4 input[type="image"]{
     position: relative;
-    top: 1.30em;
+    top: 1.00em;
     left: 40%;
     width: 3.75em;
     height: 3.75em;
     overflow: hidden;
     border-radius: 50%;
 }
-
-.custom-file-upload {
-    position: relative;
-    top: 1.80em;
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .file-label {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  .hidden {
-    display: none;
-  }
 
 .content4 input[type="text"]{
     position: relative;
@@ -642,11 +670,13 @@ body{
 
 .content4 .changename{
     position: absolute;
-    top: 14.50em;
-    left: 7.90em;
+    top: 15.50em;
+    left: 7.20em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
+    background: transparent;
+    border: none;
     font-size: 13px;
     text-decoration: none;
     text-transform: uppercase;
@@ -654,21 +684,20 @@ body{
     transition: all 0.5s;
     margin-right: 25px;
     letter-spacing: 2px;
-    border: 0px;
-    border-radius: 25px;
+    cursor: pointer;
   }
 
-  /*.content4 .changename:hover{
+  .content4 .changename:hover{
     background: #39ff14;
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #39ff14, 0 0 25px #39ff14;
-  }*/
+  }
 
   .content4 .logout{
     position: relative;
     top: 12.50em;
-    left: 7.90em;
+    left: 7.50em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
@@ -686,4 +715,10 @@ body{
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #ff0000, 0 0 25px #ff0000;
+  }
+
+  .hidden{
+    position: absolute;
+    top: 5em;
+    left: 4.375em;
   }

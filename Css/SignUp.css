@@ -7,7 +7,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(#d62323,#813f3f, #272829);
+    background: linear-gradient(rgb(247, 247, 247), rgb(116, 114, 114), rgb(19, 19, 19));
 }
 
 .center{
@@ -24,7 +24,7 @@ body{
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 1px 1px 0 rgb(255, 255, 255), 0 2px 5px 0 rgb(255, 255, 255);
     border-radius: 12px;
   }
   .signUP-box h2{
@@ -80,6 +80,8 @@ body{
     transition: all 0.5s;
     margin-right: 40px;
     letter-spacing: 4px;
+    background: transparent;
+    border-bottom: 0px solid rgb(0, 0, 0);
   }
 
   .signUP-box input[type=submit]:hover{

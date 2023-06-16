@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#630000, #1B1717);
+    background: linear-gradient(rgb(247, 247, 247), rgb(116, 114, 114), rgb(19, 19, 19));
 }
 
 .container
@@ -212,7 +212,7 @@ body{
 
 .chatbox_input input[type="text"]{
     color: #000 !important;
-    width: 70em;
+    width: 70rem;
     height: 3.0em;
     border: none;
     outline: none;
@@ -224,7 +224,7 @@ body{
     position: relative;
     color: #fff;
     border-radius: 0 25px 25px 0;
-    width: 10em;
+    width: 10rem;
     height: 3.0em;
     border: none;
     outline: none;
@@ -506,8 +506,8 @@ body{
 .themes{
     position: relative;
     width: 95%;
-    margin: 0px auto 0;
-    padding: 0px;
+    margin: 0em auto 0;
+    padding: 0em;
     box-sizing: border-box;
 }
 
@@ -533,7 +533,7 @@ body{
 }
 
 .timage{
-   position: fixed;
+   position: absolute;
     display: flex;
     width: 2.813em;
     height: 30px;
@@ -548,8 +548,8 @@ body{
     width: 100%;
     height: calc(100% - 120px);
     padding: 50px;
-    overflow:hidden; 
-    overflow-y:scroll;
+    overflow-y: hidden;
+    overflow-y: auto;
     
 }
 
@@ -591,18 +591,39 @@ body{
     line-height: 1.2em;
     margin-left: 15px;
     left: 27%;
-    top: 50px;
+    top: 40px;
 }
 
 .content4 input[type="image"]{
     position: relative;
-    top: 1.00em;
+    top: 1.30em;
     left: 40%;
     width: 3.75em;
     height: 3.75em;
     overflow: hidden;
     border-radius: 50%;
 }
+
+.custom-file-upload {
+    position: relative;
+    top: 1.80em;
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .file-label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .hidden {
+    display: none;
+  }
 
 .content4 input[type="text"]{
     position: relative;
@@ -621,13 +642,11 @@ body{
 
 .content4 .changename{
     position: absolute;
-    top: 15.50em;
-    left: 7.20em;
+    top: 14.50em;
+    left: 7.90em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
-    background: transparent;
-    border: none;
     font-size: 13px;
     text-decoration: none;
     text-transform: uppercase;
@@ -635,20 +654,21 @@ body{
     transition: all 0.5s;
     margin-right: 25px;
     letter-spacing: 2px;
-    cursor: pointer;
+    border: 0px;
+    border-radius: 25px;
   }
 
-  .content4 .changename:hover{
+  /*.content4 .changename:hover{
     background: #39ff14;
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #39ff14, 0 0 25px #39ff14;
-  }
+  }*/
 
   .content4 .logout{
     position: relative;
     top: 12.50em;
-    left: 7.50em;
+    left: 7.90em;
     display: inline-block;
     padding: 10px 5px;
     color: #111;
@@ -666,10 +686,4 @@ body{
     color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #ff0000, 0 0 25px #ff0000;
-  }
-
-  .hidden{
-    position: absolute;
-    top: 5em;
-    left: 4.375em;
   }
