@@ -35,32 +35,6 @@ if ( isset( $_POST['addFriend'] ) ) {
 
 }
 
-/*if ( isset( $_POST['changeProfile']) ) {
-
-    //$filename = $_FILES["uploadfile"]["name"];
-    //$tempname = $_FILES["uploadfile"]["tmp_name"];
-
-    $filename = $_POST['changePfp'];;
-    $route = "../img/" . $filename;
-    $newUsername = $_POST['changeUsername'];
- 
-    if ( $newUsername = "" && ! is_null($route)) {
-        include "../Db/changeProfilePic.php";
-
-    } elseif ( $filename = ""  && ! is_null($newUsername)) {
-        include "../Db/changeUsername.php";
-        
-    }elseif($filename = ""  && $newUsername = ""){
-        }
-    else {
-        include "../Db/changeUsernameAndProfilePic.php";
-    }
-
-    include "../Db/changeUsernameAndProfilePic.php";
-
-
-}*/
-
     if (isset($_POST['changeProfile'])) {
         
         $newUsername = $_POST['changeUsername'];
